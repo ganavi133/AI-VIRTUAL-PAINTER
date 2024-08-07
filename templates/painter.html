@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Painter</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        img {
+            border: 2px solid #424242;
+            border-radius: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #1e88e5;
+            background-color: #424242;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #616161;
+        }
+    </style>
+</head>
+<body>
+    <h1>Painter</h1>
+    <img src="{{ url_for('video_feed') }}" width="1280" height="720">
+    <a href="javascript:void(0)" onclick="shareScreen()">Share Screen</a>
+    <script>
+        function shareScreen() {
+            navigator.mediaDevices.getDisplayMedia({ video: true })
+                .then(stream => {
+                    const videoElement = document.querySelector('img');
+                    videoElement.srcObject = stream;
+                    videoElement.onloadedmetadata = () => {
+                        videoElement.play();
+                    };
+                })
+                .catch(err => {
+                    console.error("Error sharing screen: ", err);
+                });
+        }
+    </script>
+</body>
+</html>

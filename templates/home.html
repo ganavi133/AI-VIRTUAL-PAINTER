@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Instant Meeting</title>
+    <title>Home</title>
     <style>
         body {
             background-color: #121212;
@@ -19,16 +19,23 @@
             font-size: 3rem;
             margin-bottom: 2rem;
         }
-        #meet {
-            width: 80%;
-            height: 80%;
-            border: 2px solid #424242;
-            border-radius: 10px;
+        a {
+            text-decoration: none;
+            color: #1e88e5;
+            background-color: #424242;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #616161;
         }
     </style>
 </head>
 <body>
-    <h1>Instant Meeting</h1>
-    <iframe id="meet" src="https://meet.jit.si/YourMeetingNameHere" allow="camera; microphone; display-capture" frameborder="0"></iframe>
+    <h1>Welcome to the Home Page</h1>
+    <a href="/painter" target="_blank">Go to Painter</a>
+    <a href="/meeting" target="_blank">Start Instant Meeting</a>
 </body>
 </html>
